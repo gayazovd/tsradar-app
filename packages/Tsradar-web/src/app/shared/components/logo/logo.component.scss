@@ -1,0 +1,10 @@
+@import "src/styles/variables";
+@import "src/styles/base";
+
+.logo-icon {
+  padding-left: 30px;
+  font-size: 20px;
+  position: relative;
+  color: #515151;
+  @include iconBefore($radar-logo, $radar-logo-size, $radar-logo-move-top, $radar-logo-move-left);
+}

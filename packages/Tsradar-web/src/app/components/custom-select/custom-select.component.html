@@ -1,0 +1,9 @@
+<select
+  class="custom-select mb-3"
+  (change)="changeType($event)"
+>
+  <option>{{value}}</option>
+  <option *ngFor="let type of transportsTypes" [ngValue]="type">
+    {{ type }}
+  </option>
+</select>

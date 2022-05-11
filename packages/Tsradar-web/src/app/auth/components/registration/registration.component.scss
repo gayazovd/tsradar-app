@@ -1,0 +1,93 @@
+@import 'base';
+@import 'variables';
+
+.registration {
+  font-family: Gilroy;
+
+  @include element(title) {
+    margin: $login-title-margin;
+  }
+
+  @include element(error) {
+    color: red;
+  }
+
+  @include element(form-field) {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $login-form-field-margin-bottom;
+    position: relative;
+
+    @include modifier(error) {
+      border: 1px solid red;
+    }
+
+    @include modifier(success) {
+      border: 1px solid green;
+    }
+
+    @include modifier(eye-icon) {
+      @extend %form-field-eye-icon;
+      position: absolute;
+      width: $eye-icon-width;
+      height: $eye-icon-height;
+      right: $eye-icon-move-right;
+      top: $eye-icon-move-top;
+      cursor: pointer;
+    }
+  }
+
+  @include element(form-lastname) {
+    @extend %input-form-field;
+  }
+
+  @include element(form-firstname) {
+    @extend %input-form-field;
+  }
+
+  @include element(form-label) {
+    font-size: $login-form-label-font-size;
+    padding-bottom: $login-form-label-padding-bottom;
+    color: $login-form-label-color;
+  }
+
+  @include element(form-username) {
+    @extend %input-form-field;
+  }
+
+  @include element(form-password) {
+    @extend %input-form-field;
+  }
+
+  @include element(form-phone) {
+    @extend %input-form-field;
+  }
+
+  @include element(form-submit) {
+    color: green;
+    margin: 0 0 5px;
+  }
+
+  @include element(submit) {
+    @extend %input-form-field;
+    text-align: center;
+    border: $login-submit-border;
+    background: $login-submit-background;
+    color: $login-submit-color;
+    padding: $login-submit-padding;
+  }
+
+  @include element(footer) {
+    display: flex;
+    font-size: $login-form-label-font-size;
+  }
+
+  @include element(footer-text) {
+    color: $login-form-label-color;
+    padding-right: 5px;
+  }
+
+  @include element(footer-link) {
+    color: #465685;
+  }
+}

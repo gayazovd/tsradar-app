@@ -1,0 +1,40 @@
+@import "~bootstrap/scss/bootstrap";
+@import "variables";
+@import "base";
+
+.rental {
+  background: #f6f7f6;
+  @include element(headers) {
+
+  }
+
+  @include element(header-item) {
+    margin: 10px 0;
+  }
+
+  @include element(header) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include element(list-headers) {
+
+  }
+
+  @include element(transports) {
+    height: calc(100vh - 200px);
+    overflow: scroll;
+  }
+
+  @include element(list) {
+    display: flex;
+    background: #ffffff;
+    padding-left: 0;
+  }
+
+  @include element(list-item) {
+    flex: 1 1 100px;
+    text-align: center;
+    padding: 10px;
+  }
+}

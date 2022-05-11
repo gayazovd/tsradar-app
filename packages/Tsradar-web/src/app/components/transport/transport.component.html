@@ -1,0 +1,20 @@
+<ul class="transport" (click)="onClick()" *ngIf="transport">
+  <li class="transport__item">{{transport.brand}}</li>
+  <li class="transport__item">
+    <ng-container *ngTemplateOutlet="rental"></ng-container>
+  </li>
+  <li class="transport__item">{{transport.color}}</li>
+  <li class="transport__item">{{transport.carcass}}</li>
+  <li class="transport__item">{{transport.power}}</li>
+  <li class="transport__item">{{transport.type}}</li>
+  <li
+    class="transport__item {{'transport__icon--' + getType(transport.transport_type) }}">{{transport.transport_type}}</li>
+
+  <ng-template #rental>
+    <div [ngClass]="{
+    'transport__reserved': transport.status,
+    'transport__rental': !transport.status
+    }"
+    >{{reservedText}}</div>
+  </ng-template>
+</ul>

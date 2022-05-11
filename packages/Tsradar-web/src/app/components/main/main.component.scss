@@ -1,0 +1,19 @@
+@import "variables";
+@import "base";
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  @include element(content) {
+    flex: 1;
+    background: $rental-background;
+    padding: $page-padding;
+  }
+
+  @include element(footer) {
+    @extend %flex-center;
+    height: 30px;
+  }
+}

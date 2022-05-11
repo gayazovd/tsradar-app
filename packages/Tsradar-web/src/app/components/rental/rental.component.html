@@ -1,0 +1,28 @@
+<div class="rental">
+  <div class="rental__header">
+    <div class="rental__header-item">
+      <h3>Reservation</h3>
+    </div>
+    <div (click)="onClick()" class="rental__header-item">
+      <button type="button" class="btn btn-success">Add vehicle</button>
+    </div>
+  </div>
+  <div class="rental__list-headers">
+    <ul class="rental__list">
+      <li class="rental__list-item" *ngFor="let header of mainHeaders">
+        <span>{{header}}</span>
+      </li>
+    </ul>
+  </div>
+  <div class="rental__transports">
+    <ng-container *ngFor="let transport of transports$ | async">
+      <app-transport [transport]="transport"></app-transport>
+    </ng-container>
+  </div>
+</div>
+<app-popup title="Update car" [id]="popupsIds.edit">
+  <app-transport-form></app-transport-form>
+</app-popup>
+<app-popup title="Create car" [id]="popupsIds.create">
+  <app-add-transport-form></app-add-transport-form>
+</app-popup>

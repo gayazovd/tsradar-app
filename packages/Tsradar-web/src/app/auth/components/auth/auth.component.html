@@ -1,0 +1,10 @@
+<div class="auth">
+  <div class="auth__modal auth__modal--specific-background">
+    <div class="auth__modal-content">
+      <app-logo></app-logo>
+      <main class="auth__modal-main" [@routeAnimation]="prepareRoute(outlet)">
+        <router-outlet #outlet="outlet"></router-outlet>
+      </main>
+    </div>
+  </div>
+</div>

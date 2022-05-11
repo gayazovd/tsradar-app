@@ -1,0 +1,117 @@
+//Base
+$page-padding: 0 20px;
+
+// Auth page
+$auth-page-gradient: linear-gradient(90deg, hsla(192, 60%, 49%, 1) 0%, hsla(225, 36%, 48%, 1) 100%);
+$auth-page-width: 70%;
+$auth-page-height: 60%;
+$auth-page-min-width: 920px;
+
+// Logo
+$radar-logo: url('../assets/images/radar-logo.png');
+$radar-logo-move-top: -5px;
+$radar-logo-move-left: 0;
+$radar-logo-size: 30px;
+
+// Login page
+$login-title-margin: 13px 0;
+$login-submit-border: 1px solid #A93159;
+$login-submit-background: #A93159;
+$login-submit-background-disabled: rgba(169, 49, 89, 0.58);
+$login-submit-color: #FFFFFF;
+$login-submit-padding: 10px 15px;
+$login-form-label-font-size: 13px;
+$login-form-label-padding-bottom: 5px;
+$login-form-label-color: #414042;
+$login-form-field-margin-bottom: 13px;
+
+// Input field
+$input-field-padding: 10px 35px 10px 15px;
+$input-field-border: 1px solid #BCBEC0;
+$input-field-border-radius: 40px;
+
+// Eye icon
+$eye-icon-width: 20px;
+$eye-icon-height: 20px;
+$eye-icon-move-right: 20px;
+$eye-icon-move-top: 50%;
+$eye-icon-translate-y: translateY(-45%);
+
+//Navigation menu
+$navigation-list-item-padding: 20px 40px;
+$navigation-active-link-border: 2px solid #6e59e1;
+$navigation-link-color: #333044;
+$navigation-link-active-color: #6e59e1;
+$navigation-list-item-icon-size: 20px;
+$navigation-list-item-icon-move-top: 18px;
+$navigation-list-item-icon-move-left: 15px;
+$navigation-list-item-icon-profile: url('../assets/images/profile.svg');
+$navigation-list-item-icon-key: url('../assets/images/key.svg');
+$navigation-list-item-icon-key-active: url('../assets/images/key-active.svg');
+$navigation-list-item-icon-settings: url('../assets/images/settings.svg');
+$navigation-list-item-icon-note: url('../assets/images/note.svg');
+$navigation-list-item-icon-note-active: url('../assets/images/note-active.svg');
+$navigation-list-item-icon-dashboard: url('../assets/images/dashboard.svg');
+$navigation-list-item-icon-dashboard-active: url('../assets/images/dashboard-active.svg');
+$navigation-settings-icon-move-left: -5px;
+
+// Transports
+$transport-hatchback-icon: url('../assets/images/hatchback.svg');
+$transport-default-icon: url('../assets/images/default.svg');
+$transport-sedan-icon: url('../assets/images/sedan.svg');
+$transport-moto-icon: url('../assets/images/moto.svg');
+$transport-item-active: rgba(105, 89, 225, 0.47);
+$transport-item-flex: 1 1 100px;
+$transport-item-text-align: center;
+$transport-item-line-height: 30px;
+$transport-item-padding: 5px;
+$transport-item-reserved-bg: #f19a4a;
+$transport-item-rental-bg: #689a67;
+$transport-item-rental-reserved-br: 4px;
+$transport-form-padding: 10px;
+$transport-form-width: 40%;
+$transport-form-background: #f6f7f6;
+
+
+// rental
+$rental-background: #f6f7f6;
+
+// popup
+$popup-edit-icon: url('../assets/images/edit.svg');
+$popup-cross-icon: url('../assets/images/cross.svg');
+$popup-move-top: 0;
+$popup-move-left: 0;
+$popup-width: 100vw;
+$popup-height: 100vh;
+$popup-shading-bg: rgba(0, 0, 0, .75);
+$popup-container-width: 50%;
+$popup-container-move-left: 50%;
+$popup-container-move-top: 30%;
+$popup-container-transform: translate($popup-container-move-left, $popup-container-move-top);
+$popup-container-background: #ffffff;
+$popup-container-header-padding: 10px;
+$popup-container-header-icon-margin: 10px;
+$popup-container-header-icon-edit-size: 30px;
+$popup-container-header-icon-cross-size: 45px;
+
+//dropdown
+$dropdown-move-left: 0;
+$dropdown-background: #f6f7f6;
+$dropdown-margin-top: 10px;
+$dropdown-border: 1px solid #333;
+$dropdown-list-item-padding: 10px;
+$dropdown-list-item-border-bottom: 1px solid #000;
+$dropdown-list-item-hover-bg: rgba(105, 89, 225, 0.47);
+;
+
+/*padding: 10px;
+    border-bottom: 1px solid #000;
+
+    &:hover {
+      background: rgba(105, 89, 225, 0.47);
+    }*/
+
+//// bootsrtap
+//$btn-padding-y: 5px;
+//$btn-padding-x: 5px;
+

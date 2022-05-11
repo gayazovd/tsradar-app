@@ -1,0 +1,26 @@
+@import "~bootstrap/scss/bootstrap";
+@import "variables";
+@import "base";
+
+.dropdown {
+  position: absolute;
+  left: $dropdown-move-left;
+  background: $dropdown-background;
+  margin-top: $dropdown-margin-top;
+  border-left: $dropdown-border;
+  border-right: $dropdown-border;
+  border-top: $dropdown-border;
+
+  @include element(list-item) {
+    padding: $dropdown-list-item-padding;
+    border-bottom: $dropdown-border;
+
+    &:hover {
+      background: $dropdown-list-item-hover-bg;
+    }
+  }
+}
+
+ul {
+  all: unset;
+}

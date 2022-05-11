@@ -1,0 +1,36 @@
+@import 'base';
+@import 'variables';
+
+.auth {
+  @extend %flex-center;
+  height: 100%;
+  background: $auth-page-gradient;
+
+  @include element(modal) {
+    border-radius: 40px;
+    height: $auth-page-height;
+    width: $auth-page-width;
+    min-width: $auth-page-min-width;
+
+    @include modifier(specific-background) {
+      background: #FFFFFF;
+      background-image: url('../assets/images/auth.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right;
+    }
+  }
+
+  @include element(modal-content) {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 23%;
+    padding-top: 40px;
+    padding-left: 127px;
+  }
+
+  @include element(modal-main) {
+    position: relative;
+  }
+}

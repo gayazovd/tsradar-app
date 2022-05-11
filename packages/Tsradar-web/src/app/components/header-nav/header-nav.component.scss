@@ -1,0 +1,71 @@
+@import "variables";
+@import "base";
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $page-padding;
+
+  @include element(settings-section) {
+    position: relative;
+    display: flex;
+    cursor: pointer;
+  }
+
+  @include element(navigation-list) {
+    display: flex;
+  }
+
+  @include element(navigation-list-item) {
+    padding: $navigation-list-item-padding;
+  }
+
+  @include element(navigation-active-link) {
+    border-bottom: $navigation-active-link-border;
+  }
+
+  @include element(navigation-link) {
+    color: $navigation-link-color;
+    @include modifier(active) {
+      color: $navigation-link-active-color;
+    }
+  }
+
+  @include element(settings-item) {
+    padding: 20px;
+    position: relative;
+    @include iconBefore($navigation-list-item-icon-settings, $navigation-list-item-icon-size, $navigation-list-item-icon-move-top, $navigation-settings-icon-move-left)
+  }
+
+  @include element(profile-item) {
+    padding: 20px;
+    position: relative;
+    @include iconBefore($navigation-list-item-icon-profile, $navigation-list-item-icon-size, $navigation-list-item-icon-move-top, $navigation-settings-icon-move-left)
+  }
+
+  @include element(navigation-list-item-key) {
+    position: relative;
+    @include iconBefore($navigation-list-item-icon-key, $navigation-list-item-icon-size, $navigation-list-item-icon-move-top, $navigation-list-item-icon-move-left);
+    @include modifier(active) {
+      @include iconBefore($navigation-list-item-icon-key-active, $navigation-list-item-icon-size, $navigation-list-item-icon-move-top, $navigation-list-item-icon-move-left)
+    }
+  }
+
+  @include element(navigation-list-item-note) {
+    position: relative;
+    @include iconBefore($navigation-list-item-icon-note, $navigation-list-item-icon-size, $navigation-list-item-icon-move-top, $navigation-list-item-icon-move-left);
+    @include modifier(active) {
+      @include iconBefore($navigation-list-item-icon-note-active, $navigation-list-item-icon-size, $navigation-list-item-icon-move-top, $navigation-list-item-icon-move-left)
+    }
+
+  }
+
+  @include element(navigation-list-item-dashboard) {
+    position: relative;
+    @include iconBefore($navigation-list-item-icon-dashboard, $navigation-list-item-icon-size, $navigation-list-item-icon-move-top, $navigation-list-item-icon-move-left);
+    @include modifier(active) {
+      @include iconBefore($navigation-list-item-icon-dashboard-active, $navigation-list-item-icon-size, $navigation-list-item-icon-move-top, $navigation-list-item-icon-move-left)
+    }
+  }
+}

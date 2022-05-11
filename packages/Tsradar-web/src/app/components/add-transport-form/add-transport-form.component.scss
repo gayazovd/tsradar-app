@@ -1,0 +1,37 @@
+@import "variables";
+@import "base";
+@import "~bootstrap/scss/bootstrap";
+
+.add-transport {
+
+  padding: $transport-form-padding;
+  background: $transport-form-background;
+
+  @include element(create-section) {
+    width: $transport-form-width;
+  }
+
+  @include element(form-field) {
+    display: flex;
+    margin-bottom: $login-form-field-margin-bottom;
+    flex-direction: column;
+    position: relative;
+
+    @include modifier(error) {
+      border: 1px solid red;
+    }
+
+    @include modifier(success) {
+      border: 1px solid green;
+    }
+  ;
+  }
+
+  @include element(form-label) {
+    padding: $transport-form-padding - 5;
+  }
+  @include element(form-item) {
+    padding: $transport-form-padding - 5;
+    width: fit-content;
+  }
+}

@@ -1,0 +1,57 @@
+@import "variables";
+@import "~bootstrap/scss/bootstrap";
+@import "base";
+
+.popup {
+  position: absolute;
+  top: $popup-move-top;
+  left: $popup-move-left;
+  width: $popup-width;
+  height: $popup-height;
+  background-color: $popup-shading-bg;
+
+  @include element(container) {
+    position: absolute;
+    width: $popup-container-width;
+    transform: $popup-container-transform;
+    background: $popup-container-background;
+  }
+
+  @include element(container-header) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include element(container-header-settings) {
+    display: flex;
+    align-items: center;
+
+    @include modifier(item) {
+      padding: $popup-container-header-padding;
+    }
+
+    @include modifier(edit) {
+      position: relative;
+      margin-right: $popup-container-header-icon-margin;
+      @include icon($popup-edit-icon, $popup-container-header-icon-edit-size)
+    }
+
+    @include modifier(cross) {
+      position: relative;
+      @include icon($popup-cross-icon, $popup-container-header-icon-cross-size)
+    }
+  }
+
+  @include element(container-header-title) {
+    padding-left: $popup-container-header-padding;
+  }
+
+  @include element(container-footer) {
+    display: flex;
+    justify-content: flex-end;
+
+    @include modifier(button) {
+      padding: $popup-container-header-padding;
+    }
+  }
+}

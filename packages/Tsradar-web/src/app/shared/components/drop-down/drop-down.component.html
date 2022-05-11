@@ -1,0 +1,10 @@
+<!--<div class="dropdown__wrapper">-->
+<ng-content></ng-content>
+<div class="dropdown" *ngIf="isShow">
+  <ul class="dropdown__list">
+    <li class="dropdown__list-item" (click)="trigger(item.action)" *ngFor="let item of listItems">
+      <span class="dropdown__list-item-name">{{item.name}}</span>
+    </li>
+  </ul>
+</div>
+<!--</div>-->

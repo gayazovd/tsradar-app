@@ -1,0 +1,46 @@
+<ng-container *ngIf="editAndTransport | async as transportData;">
+  <div *ngIf="!isEdit(transportData); else formTemplate" class="transport">
+    <div class="transport__read-section">
+      <div class="transport__form-field" *ngFor="let item of transportFormText | keyvalue">
+        <label class="form-label" for="read-input">{{item.value}}</label>
+        <input id="read-input" class="form-control" type="text" value="{{getField(transportData.transport, item.key)}}"
+               aria-label="Disabled input example" disabled readonly>
+      </div>
+      <div (click)="onRemove(transportData.transport._id)" class="popup__container-footer--button">
+        <button type="button" class="btn btn-danger">Remove</button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #formTemplate>
+    <div class="transport">
+      <div class="transport__edit-section">
+        <form *ngIf="transportForm" [formGroup]="transportForm" (ngSubmit)="onSubmit(transportData.transport._id)">
+          <div *ngFor="let item of transportFormText | keyvalue" class="transport__form-field">
+            <label class="form-label" for="{{item.key}}">{{item.value}}</label>
+            <ng-container [ngSwitch]="item.key">
+              <app-custom-select
+                *ngSwitchCase="'transport_type'"
+                [value]="transportForm.get(item.key)?.value"
+                (changeCarType)="changeCarType($event, item.key)"
+                [transportsTypes]="transportsTypes"
+              ></app-custom-select>
+              <input *ngSwitchCase="'status'" formControlName="{{item.key}}" [id]="item.key" type="checkbox">
+              <input *ngSwitchDefault formControlName="{{item.key}}"
+                     class="form-control"
+                     [ngClass]="{
+                       'transport__form-field--error': isShowError(item.key),
+                       'transport__form-field--success': isSuccess(item.key)
+                     }"
+                     placeholder="{{item.key}}"
+                     [id]="item.key" type="{{ item.key === 'power' ? 'number' : 'text'}}">
+            </ng-container>
+          </div>
+          <div class="popup__container-footer--button">
+            <button [disabled]="transportForm.invalid" type="submit" class="btn btn-success">Success</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </ng-template>
+</ng-container>

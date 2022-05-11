@@ -1,0 +1,29 @@
+<div class="add-transport">
+  <div class="add-transport__create-section">
+    <form *ngIf="addTransportForm" [formGroup]="addTransportForm" (ngSubmit)="onSubmit()">
+      <div *ngFor="let item of transportFormText | keyvalue" class="add-transport__form-field">
+        <label class="form-label" for="{{item.key}}">{{item.value}}</label>
+        <ng-container [ngSwitch]="item.key">
+          <app-custom-select
+            *ngSwitchCase="'transport_type'"
+            [value]="addTransportForm.get(item.key)?.value"
+            (changeCarType)="changeCarType($event, item.key)"
+            [transportsTypes]="transportsTypes"
+          ></app-custom-select>
+          <input *ngSwitchCase="'status'" formControlName="{{item.key}}" [id]="item.key" type="checkbox">
+          <input *ngSwitchDefault formControlName="{{item.key}}"
+                 class="form-control"
+                 [ngClass]="{
+                   'add-transport__form-field--error': isShowError(item.key),
+                   'add-transport__form-field--success': isSuccess(item.key)
+                  }"
+                 placeholder="{{item.key}}"
+                 id="{{item.key}}" type="{{ item.key === 'power' ? 'number' : 'text'}}">
+        </ng-container>
+      </div>
+      <div class="popup__container-footer--button">
+        <button [disabled]="addTransportForm.invalid" type="submit" class="btn btn-success">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

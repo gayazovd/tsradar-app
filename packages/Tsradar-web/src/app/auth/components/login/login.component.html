@@ -1,0 +1,39 @@
+<div class="login">
+  <h2 class="login__title">{{loginText.title}}</h2>
+  <span class="login__error" *ngIf="checkCorrecting() && errorMessage">{{errorMessage}}</span>
+  <form *ngIf="loginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login__form">
+    <div class="login__form-field">
+      <label class="login__form-label" for="username">{{loginText.username}}</label>
+      <input formControlName="username" autocomplete="username"
+             class="login__form-username"
+             [ngClass]="{
+             'login__form-field--error': isShowError('username'),
+             'login__form-field--success': isSuccess('username')
+             }"
+             placeholder="{{loginText['username']}}"
+             id="username" type="text">
+    </div>
+    <div class="login__form-field">
+      <label class="login__form-label" for="password">{{loginText.password}}</label>
+      <app-show-password>
+        <input #refInput formControlName="password" autocomplete="current-password"
+               class="login__form-password"
+               [ngClass]="{
+               'login__form-field--error': isShowError('password'),
+               'login__form-field--success': isSuccess('password')
+               }"
+               maxlength="{{passwordMaxLength}}"
+               placeholder="{{loginText.password}}"
+               id="password" type="password">
+      </app-show-password>
+    </div>
+    <div class="login__form-field">
+      <button [disabled]="loginForm.invalid" type="submit" class="login__submit">{{loginText.buttonText}}</button>
+    </div>
+  </form>
+  <div class="login__footer">
+    <span class="login__footer-text">{{loginText.registerText}}</span>
+    <a class="login__footer-link" routerLink="../registration">{{loginText.registerLinkText}}</a>
+  </div>
+</div>
+

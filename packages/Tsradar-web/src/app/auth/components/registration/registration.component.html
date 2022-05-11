@@ -1,0 +1,84 @@
+<div class="registration">
+  <h2 class="registration__title">{{registrationText.title}}</h2>
+  <form *ngIf="registrationForm" #form="ngForm" [formGroup]="registrationForm" (ngSubmit)="onSubmit()"
+        class="registration__form">
+    <h5 class="registration__form-submit" *ngIf="registrationText && form.submitted">{{successText}}</h5>
+    <div class="registration__form-field">
+      <label class="registration__form-label" for="username">{{registrationText.username}}</label>
+      <input formControlName="username"
+             autocomplete="username"
+             class="registration__form-username"
+             [ngClass]="{
+             'registration__form-field--error': isShowError('username'),
+             'registration__form-field--success': isSuccess('username')
+             }"
+             placeholder="{{registrationText.username}}"
+             id="username" type="text">
+    </div>
+    <div class="registration__form-field">
+      <label class="registration__form-label" for="phone">{{registrationText.phone}}</label>
+      <input formControlName="phone"
+             class="registration__form-phone"
+             [ngClass]="{
+             'registration__form-field--error': isShowError('phone'),
+             'registration__form-field--success': isSuccess('phone')
+             }"
+             placeholder="{{registrationText.phone}}"
+             maxlength="{{mobileMaxLength}}"
+             id="phone" type="tel">
+    </div>
+    <div class="registration__form-field">
+      <label class="registration__form-label" for="firstname">{{registrationText.fullName}}</label>
+      <input formControlName="full_name"
+             autocomplete="name"
+             class="registration__form-firstname"
+             [ngClass]="{
+             'registration__form-field--error': isShowError('full_name'),
+             'registration__form-field--success': isSuccess('full_name')
+             }"
+             placeholder="{{registrationText.fullName}}"
+             id="firstname" type="text">
+    </div>
+    <div formGroupName="password_group" class="registration__password-group">
+      <span class="registration__error" *ngIf="checkMatchPassword()">{{misMatchText}}</span>
+      <div class="registration__form-field">
+        <label class="registration__form-label" for="password">{{registrationText.password}}</label>
+        <app-show-password>
+          <input formControlName="password" #refInput
+                 class="registration__form-password"
+                 [ngClass]="{
+                   'registration__form-field--error': isShowError('password_group.password'),
+                   'registration__form-field--success': isSuccess('password_group.password')
+                 }"
+                 placeholder="{{registrationText.password}}"
+                 autocomplete="new-password"
+                 id="password"
+                 type="password">
+        </app-show-password>
+      </div>
+      <div class="registration__form-field">
+        <label class="registration__form-label" for="confirm-password">{{registrationText.confirmPassword}}</label>
+        <app-show-password>
+          <input formControlName="confirm_password" #refInput
+                 class="registration__form-password"
+                 [ngClass]="{
+                   'registration__form-field--error': isShowError('password_group.confirm_password'),
+                   'registration__form-field--success': isSuccess('password_group.confirm_password')
+                 }"
+                 placeholder="{{registrationText.confirmPassword}}"
+                 autocomplete="new-password"
+                 id="confirm-password"
+                 type="password">
+        </app-show-password>
+      </div>
+    </div>
+    <div class="registration__form-field">
+      <button [disabled]="registrationForm.invalid" type="submit"
+              class="registration__submit">{{registrationText.buttonText}}</button>
+    </div>
+  </form>
+  <div class="registration__footer">
+    <span class="registration__footer-text">{{registrationText.loginText}}</span>
+    <a class="registration__footer-link" routerLink="../login">{{registrationText.loginTextLink}}</a>
+  </div>
+</div>

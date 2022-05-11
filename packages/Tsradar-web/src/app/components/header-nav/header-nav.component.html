@@ -1,0 +1,31 @@
+<div class="header-nav">
+  <div class="header-nav__logo-section">
+    <app-logo></app-logo>
+  </div>
+  <nav class="header-nav__navigation-section">
+    <ul class="header-nav__navigation-list">
+      <a *ngFor="let item of links"
+         routerLinkActive
+         #rel="routerLinkActive"
+         routerLink="{{item.link}}"
+         [ngClass]="calculateClasses(rel, item)"
+         class="header-nav__navigation-list-item {{'header-nav__navigation-list-item-' + item.icon}}">
+        <span [ngClass]="{'header-nav__navigation-link--active': rel.isActive}"
+              class="header-nav__navigation-link"
+        >{{item.name}}</span>
+      </a>
+    </ul>
+  </nav>
+  <div class="header-nav__settings-section">
+    <div (click)="toggleSettings()" class="header-nav__settings-item">
+      <app-drop-down (triggerAction)="triggerAction($event)" [listItems]="settingsList" [isShow]="this.isShowSettings">
+        <span class="header-nav__settings">Settings</span>
+      </app-drop-down>
+    </div>
+    <div (click)="toggleProfile()" class="header-nav__profile-item">
+      <app-drop-down (triggerAction)="triggerAction($event)" [listItems]="profileList" [isShow]="this.isShowProfile">
+        <span class="header-nav__profile">Profile</span>
+      </app-drop-down>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+@import "variables";
+
+$element-separator: '__';
+$modifier-separator: '--';
+
+@mixin element($element) {
+  $selector: &;
+  @at-root #{$selector+$element-separator+$element} {
+    @content;
+  }
+}
+
+@mixin modifier($modifier) {
+  @at-root #{&}#{$modifier-separator+$modifier} {
+    @content;
+  }
+}
+
+@mixin iconBefore($image, $size, $top, $left) {
+  $pseudo: before;
+  $selector: &;
+  @at-root #{$selector+':'+$pseudo} {
+    content: '';
+    position: absolute;
+    top: $top;
+    left: $left;
+    width: $size;
+    height: $size;
+    background-image: $image;
+    @extend %icon-settings;
+  }
+}
+
+@mixin iconAfter($image, $size, $top, $right) {
+  $pseudo: after;
+  $selector: &;
+  @at-root #{$selector+':'+$pseudo} {
+    content: '';
+    position: absolute;
+    top: $top;
+    right: $right;
+    width: $size;
+    height: $size;
+    background-image: $image;
+    @extend %icon-settings;
+  }
+}
+
+@mixin icon($image, $size) {
+  width: $size;
+  height: $size;
+  background-image: $image;
+  @extend %icon-settings;
+}
+
+%icon-settings {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%input-form-field {
+  border-radius: $input-field-border-radius;
+  padding: $input-field-padding;
+  border: $input-field-border;
+  //width: 150px;
+}
+
+%form-field-eye-icon {
+  background-image: url('../assets/images/password-icon.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+input::placeholder {
+  font-size: 13px;
+}
+
+button:disabled,
+button[disabled] {
+  border: 1px solid #999999;
+  background-color: $login-submit-background-disabled;
+  color: $login-submit-color;
+}
